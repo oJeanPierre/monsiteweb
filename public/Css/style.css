@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#date {
+    font-size: 40px;
+    font-weight: bold;
+}
+#jtm {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: underline double #b90063;
+    text-shadow: 3px 2px #000;
+    
+}
+body {
+    background-image: url("monimage.jpg"); /* Remplace par ton image */
+    background-size: cover; /* Couvre toute la page */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    margin: 0; /* Supprime les marges */
+    padding: 0; /* Supprime les paddings */
+}

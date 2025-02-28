@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><!-- Déclaration du document en HTML5 -->
+    <meta charset="UTF-8"><!-- Assure que les caractères spéciaux (é, à, etc.) sont bien affichés -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Rend la page responsive pour les mobiles et tablettes -->
+    <title>Date du Jour</title>
+    <link rel="stylesheet" href="../Css/style.css"><!-- Lien vers le fichier CSS pour le style de la page -->
+    <script>// Vérifie si l'utilisateur est connecté en regardant dans le localStorage
+        if (!localStorage.getItem("user")) {
+            window.location.href = "login.html"; // Redirige vers la page de connexion si non connecté
+        }
+    </script>
+</head>
+
+
+<body>
+    <script>// Vérification du type d'utilisateur et application d'un fond d'écran personnalisé
+        const userType = localStorage.getItem("userType"); // Récupère le type d'utilisateur
+        if (userType) {
+            // Applique une image de fond différente selon le type d'utilisateur
+            if (userType === "1") {
+                document.body.style.backgroundImage = "url('../photo/thomas_background.jpg')";
+            } else if (userType === "2") {
+                document.body.style.backgroundImage = "url('../photo/orane_background.jpg')";
+            } else {
+                document.body.style.backgroundImage = "url('../photo/global_background.jpg')";
+            }
+        } else {// Si aucun type n'est trouvé, redirige vers la page de connexion
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <h1>Date d'aujourd'hui</h1><!-- Titre principal de la page -->
+    <p id="date"></p><!-- Paragraphe où la date actuelle sera affichée grâce à un script -->
+    <p id="jtm"></p>
+    <h2>Modifier une entrée</h2><!-- Sous-titre pour le formulaire de modification -->
+
+    <form id="edit-form"><!-- Formulaire permettant de modifier une entrée -->
+        <label for="id">ID :</label><input type="number" id="id" required><br><!-- Champ pour entrer l'ID à modifier -->
+        <label for="nom">Nom :</label><input type="text" id="nom" required><br><!-- Champ pour modifier le nom -->
+        <label for="age">Âge :</label><input type="number" id="age" required><br><!-- Champ pour modifier l'âge -->
+
+        <button type="submit">Modifier</button><!-- Bouton pour soumettre le formulaire -->
+    </form>
+
+    <script src="../Javascript/script.js"></script><!-- Importation du fichier script.js qui gère l'affichage de la date et le formulaire -->
+
+    <table border="1"><!-- Début du tableau qui affichera les données -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Âge</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Les données seront insérées ici dynamiquement par le script -->
+        </tbody>
+    </table>
+</body>
+</html>
+
