@@ -3,7 +3,9 @@ const path = require("path"); // 🔥 Manquait cette ligne
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+
+const PORT = process.env.PORT || 3000; // Utilise le port donné par Railway
+app.listen(PORT, () => console.log(`✅ Serveur lancé sur le port ${PORT}`));
 
 app.use(express.json()); // Permet de lire req.body correctement
 app.use(express.json());
